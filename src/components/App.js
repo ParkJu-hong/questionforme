@@ -9,6 +9,7 @@ function App() {
   
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
+      console.log(user)
       if (user) {
         // 뭐 Object.assign 이런식으로 객체를 할당해도 된다. 
         // setUserObj(Object.assign({}, user, {}))
@@ -26,11 +27,13 @@ function App() {
         dispatch({
           type: 'LOGGED_IN'
         })
+      }else{
+        dispatch({type:'LOG_OUT'})
       }
       setInit(true);
     })
   }, [])
-  
+
   return (
     <div>
       {init ? <AppRoute /> : "Initializing..."}

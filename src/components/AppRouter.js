@@ -13,7 +13,7 @@ const AppRoute = () => {
         <Router>
             {isLoggedIn && <Navigation/>}
             <Switch>
-                    <>
+                {isLoggedIn ? <>
                         <Route exact path="/">
                             <Home />
                         </Route>
@@ -26,7 +26,7 @@ const AppRoute = () => {
                     </> : 
                     <Route exact path="/">
                         <Auth />
-                    </Route>
+                    </Route>}
             </Switch>
         </Router>
     )

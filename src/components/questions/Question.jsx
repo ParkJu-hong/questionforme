@@ -15,14 +15,19 @@ function Question({ whatnumberquestion = ""}) {
     };
     const onSubmit = async (event) => {
         const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-        const nweetObj = {
-            text,
-            whatnumberquestion,
-            createdAt: Date.now(),
-            creatorId: userObj.uid,
+        const ok = window.confirm("Are you sure you want to upload this?");
+        if(ok){
+            const nweetObj = {
+                text,
+                whatnumberquestion,
+                createdAt: Date.now(),
+                creatorId: userObj.uid,
+            }
+            await dbService.collection("test").add(nweetObj);
+            setText("")
+        }else{
+            return;
         }
-        await dbService.collection("test").add(nweetObj);
-        setText("")
     };
     useEffect(()=>{
         dbService.collection("Questions").onSnapshot((snapshot) => {

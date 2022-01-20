@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import Calender from './questions/Calender';
 
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 function Home() {
     const [text, setText] = useState("");
     const [nweets, setNweets] = useState([]);
@@ -24,9 +26,9 @@ function Home() {
             creatorId: userObj.uid,
         }
         await dbService.collection("test").add(nweetObj);
-        setText("")
+        setText("");
     };
-    useEffect(() => {
+    useEffect(async () => {
         dbService.collection("test").onSnapshot((snapshot) => {
             const nweetArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
@@ -34,21 +36,22 @@ function Home() {
             }))
             setNweets(nweetArray);
         });
-        
-        // 지금하고싶은게.. 필터링하는 것
-        /*
-            creatorId, whatnumberquestion에 따라 사용자에 따라 프론트로 렌더링하는 거랑
-            createdAt이걸로 최신순부터 위로가게끔 차순정렬하는 필터링을 하고싶음.
-        */
-
         dbService.collection("Questions").onSnapshot((snapshot) => {
             const questionsArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data()
             }))
-            console.log("questionsArray : ", questionsArray);
             setQuestions(questionsArray);
         });
+
+        // filtering test code 
+        const q = query(collection(dbService, "test"), where("whatnumberquestion", "==", true));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+          });
+
     }, []);
     return (
         <div>
