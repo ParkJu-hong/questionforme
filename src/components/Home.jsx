@@ -1,83 +1,65 @@
 import React, { useState, useEffect } from 'react'
-import { dbService, storageService } from "../fBase";
-import { useSelector } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
-import Calender from './questions/Calender';
-
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { dbService } from "../fBase";
+import { useSelector } from "react-redux"
+import Answer from './Answer';
 
 function Home() {
-    const [text, setText] = useState("");
-    const [nweets, setNweets] = useState([]);
-    const [questions, setQuestions] = useState([]);
+    const [answers, setAnswers] = useState([]);
+    const [forRenderingRealTime, SetForRenderingRealTime] = useState(false);
     const userObj = useSelector(state => state.reducerLoggedIn.userObj);
 
-    const onChange = (event) => {
-        const {
-            target: { value }
-        } = event;
-        setText(value);
-    };
-    const onSubmit = async (event) => {
-        const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-        const nweetObj = {
-            text,
-            createdAt: Date.now(),
-            creatorId: userObj.uid,
-        }
-        await dbService.collection("test").add(nweetObj);
-        setText("");
-    };
-    useEffect(async () => {
+    const getText = async () => {
+        // 유저가 쓴 글
+        let arrAnswers = [];
+        let arrQuestions = []
         dbService.collection("test").onSnapshot((snapshot) => {
             const nweetArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data()
             }))
-            setNweets(nweetArray);
+            // 해당 유저가 해당 유저가 쓴 글만 볼 수 있도록 필터링을 함.
+            arrAnswers = nweetArray.filter((el) => {
+                if (el.creatorId === userObj.uid && el.whatnumberquestion !== undefined) {
+                    return true;
+                }
+            });
+            arrAnswers = arrAnswers.sort((a, b) => {
+                return a.whatnumberquestion - b.whatnumberquestion;
+            });
         });
+        
         dbService.collection("Questions").onSnapshot((snapshot) => {
             const questionsArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data()
             }))
-            setQuestions(questionsArray);
+            arrQuestions = questionsArray.slice();
         });
 
-        // filtering test code 
-        const q = query(collection(dbService, "test"), where("whatnumberquestion", "==", true));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-          });
+        setTimeout(() => {
+            let i = 0;
+            while (1) {
+                if (arrAnswers[i] === undefined) break;
+                arrAnswers[i]["whatnumberquestion"] = arrQuestions[Number(arrAnswers[i].whatnumberquestion) - 1].question;
+                i++;
+            }
+        }, 500);
+        setTimeout(() => {
+            setAnswers(arrAnswers);
+        }, 1000)
+    }
 
-    }, []);
+
+    useEffect(() => {
+        getText();
+    }, [forRenderingRealTime]);
     return (
         <div>
-            <form>
-                <input
-                    type="text"
-                    placeholder="Enter"
-                    value={text}
-                    onChange={onChange}
-                />
-                <input
-                    type="submit"
-                    value="Submit!"
-                    onClick={onSubmit}
-                />
-            </form>
-            <div>
-                {nweets.map((el) => {
-                    return <div key={el.id}>
-                        <div>createdAt : {el.createdAt}</div>
-                        <div>creatorId : {el.creatorId}</div>
-                        <div>text : {el.text}</div>
-                    </div>
-                })}
-            </div>
-            <Calender />
+            <Answer
+                answers={answers}
+                forRenderingRealTime={() => {
+                    SetForRenderingRealTime(!forRenderingRealTime)
+                }} />
         </div>
     )
 }

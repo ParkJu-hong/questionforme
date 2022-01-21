@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { authService, firebaseInstance } from "../fBase";
-import { useDispatch } from "react-redux";
 
 function Auth() {
-    const dispatch = useDispatch();
 
     const onSocialClick = async (event) => {
         let provider = new firebaseInstance.auth.GoogleAuthProvider();
-        const data = await authService.signInWithPopup(provider);
+        await authService.signInWithPopup(provider);
     }
 
     return (

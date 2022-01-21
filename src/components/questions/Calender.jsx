@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Question from './Question';
 
 function Calender() {
-    const [arr, setArr] = useState(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
+    const [arr, setArr] = useState(['1', '2', '3', '4', '5', '6', '7', '8', '9']);
     const [selected, setSelected] = useState("");
     return (
         <div>

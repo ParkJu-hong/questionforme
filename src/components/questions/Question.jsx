@@ -24,7 +24,8 @@ function Question({ whatnumberquestion = ""}) {
                 creatorId: userObj.uid,
             }
             await dbService.collection("test").add(nweetObj);
-            setText("")
+            setText("");
+            window.confirm("Success");
         }else{
             return;
         }
