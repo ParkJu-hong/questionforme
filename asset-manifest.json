@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/questionforme/static/css/main.31d6cfe0.css",
-    "main.js": "/questionforme/static/js/main.ffb563f8.js",
+    "main.js": "/questionforme/static/js/main.2529e8b3.js",
     "index.html": "/questionforme/index.html",
-    "main.ffb563f8.js.map": "/questionforme/static/js/main.ffb563f8.js.map"
+    "main.2529e8b3.js.map": "/questionforme/static/js/main.2529e8b3.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.ffb563f8.js"
+    "static/js/main.2529e8b3.js"
   ]
 }
