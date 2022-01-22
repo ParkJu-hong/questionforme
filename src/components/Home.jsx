@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { dbService } from "../fBase";
 import { useSelector } from "react-redux"
 import Answer from './Answer';
+import styled from "styled-components";
 
 function Home() {
     const [answers, setAnswers] = useState([]);
@@ -54,14 +55,19 @@ function Home() {
         getText();
     }, [forRenderingRealTime]);
     return (
-        <div>
+        <Main>
             <Answer
                 answers={answers}
                 forRenderingRealTime={() => {
                     SetForRenderingRealTime(!forRenderingRealTime)
                 }} />
-        </div>
+        </Main>
     )
 }
+
+const Main = styled.div`
+    text-align: center;
+    /* border: 1px solid red; */
+`
 
 export default Home

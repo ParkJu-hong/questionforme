@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { dbService } from "../fBase";
+import styled from "styled-components"
 
 function Answer({ answers, forRenderingRealTime }) {
     useEffect(() => {
@@ -17,24 +18,30 @@ function Answer({ answers, forRenderingRealTime }) {
             //  non delete 
         }
     }
-    const toggleEditing = () => {
 
-    }
     return (
         <div>
             {answers.length !== 0 ? answers.map((el) => {
-                return <div key={el.id}>
-                    <div>whatnumberquestion : {el.whatnumberquestion}</div>
-                    <div>text : {el.text}</div>
-                    <button
+                return <_Answer key={el.id}>
+                    <span>
+                    <div>Question : {el.whatnumberquestion}</div>
+                    <div>{el.text}</div>
+                    </span>
+                    <DeleteButton
                         name={el.id}
                         onClick={onDeleteClick}
-                    >Delete Nweet</button>
-                    <button onClick={toggleEditing}>Edit Nweet</button>
-                </div>
-            }) : "Initializing..."}
+                    >Delete Nweet</DeleteButton>
+                </_Answer>
+            }) : "9qfm"}
         </div>
     )
 }
+
+const _Answer = styled.div`
+    margin: 20px;
+`
+const DeleteButton = styled.button`
+    margin-top: 5px;
+`
 
 export default Answer

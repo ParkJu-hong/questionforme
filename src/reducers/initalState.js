@@ -1,6 +1,8 @@
 const initalState = {
     isLoggedIn: false,
-    userObj: {}
+    userObj: {},
+    calenderSelected: ""
+    
 }
 
 export default initalState;

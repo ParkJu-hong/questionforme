@@ -6,7 +6,11 @@ export const reducerLoggedIn = (state = initalState, action) => {
         case 'LOG_OUT':
             return Object.assign({}, state, { isLoggedIn: false });
         case 'SET_USER_OBJ':
-            return Object.assign({}, state, { userObj: action.payload.userObj})
+            return Object.assign({}, state, { userObj: action.payload.userObj });
+        case "CHANGE_CALENDER":
+            return Object.assign({}, state, { calenderSelected: "" });
+        case "CHANGE_CALENDER_NOT_NULL":
+            return Object.assign({}, state, { calenderSelected: action.payload.calenderSelected});
         default:
             return state;
     }
