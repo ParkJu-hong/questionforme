@@ -13,21 +13,21 @@ const AppRoute = () => {
         console.log("process.env.PUBLIC_URL : ", process.env.PUBLIC_URL)
     },[])
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             {isLoggedIn && <Navigation/>}
             <Switch>
                 {isLoggedIn ? <>
-                        <Route exact path="/">
+                        <Route exact path="/questionforme">
                             <Home />
                         </Route>
-                        <Route path="/profile">
+                        <Route path="/questionforme/profile">
                             <Profile />
                         </Route>
-                        <Route path="/calender">
+                        <Route path="/questionforme/calender">
                             <Calender />
                         </Route>
                     </> : 
-                    <Route exact path="/">
+                    <Route exact path="/questionforme">
                         <Auth />
                     </Route>}
             </Switch>
