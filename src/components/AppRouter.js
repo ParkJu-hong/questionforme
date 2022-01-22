@@ -10,7 +10,7 @@ import Calender from "./questions/Calender";
 const AppRoute = () => {
     const isLoggedIn = useSelector(state => state.reducerLoggedIn.isLoggedIn);
     return (
-        <Router base="/">
+        <Router basename={process.env.PUBLIC_URL}>
             {isLoggedIn && <Navigation/>}
             <Switch>
                 {isLoggedIn ? <>
