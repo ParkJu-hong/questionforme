@@ -20,7 +20,7 @@ function Answer({ answers, forRenderingRealTime }) {
     }
 
     return (
-        <div>
+        <div style={{ margin: "30px"}}>
             {answers.length !== 0 ? answers.map((el) => {
                 return <_Answer key={el.id}>
                     <span>
@@ -32,7 +32,7 @@ function Answer({ answers, forRenderingRealTime }) {
                         onClick={onDeleteClick}
                     >Delete Nweet</DeleteButton>
                 </_Answer>
-            }) : "9qfm"}
+            }) : <div >9qfm</div>}
         </div>
     )
 }

@@ -95,7 +95,7 @@ function Profile() {
 const Main = styled.div`
     text-align: center;
     /* border: 1px solid red; */
-    margin:10px;
+    margin: 40px;
 `
 
 export default Profile
