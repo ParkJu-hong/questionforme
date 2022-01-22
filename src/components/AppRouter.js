@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from "./Auth";
 import Home from "./Home";
@@ -9,6 +9,9 @@ import Calender from "./questions/Calender";
 
 const AppRoute = () => {
     const isLoggedIn = useSelector(state => state.reducerLoggedIn.isLoggedIn);
+    useEffect(()=>{
+        console.log("process.env.PUBLIC_URL : ", process.env.PUBLIC_URL)
+    },[])
     return (
         <Router basename={process.env.PUBLIC_URL}>
             {isLoggedIn && <Navigation/>}
