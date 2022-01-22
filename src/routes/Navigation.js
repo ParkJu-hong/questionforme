@@ -21,9 +21,9 @@ function Navigation() {
     return (
         <>
             <Nav style={{ display: "flex", justifyContent: "space-around", width: "100vw" }}>
-                <Div style={{}}><Link to="/profile" style={{textDecoration: "none", color: 'black'}}>{userObj.displayName}'s Profile</Link></Div>
-                <Div style={{}}><Link to="/" style={{textDecoration: "none", color: 'black'}}><FontAwesomeIcon icon={faHome} /></Link></Div>
-                <Div style={{}}><Link to="/calender" 
+                <Div style={{}}><Link to="/questionforme/profile" style={{textDecoration: "none", color: 'black'}}>{userObj.displayName}'s Profile</Link></Div>
+                <Div style={{}}><Link to="/questionforme" style={{textDecoration: "none", color: 'black'}}><FontAwesomeIcon icon={faHome} /></Link></Div>
+                <Div style={{}}><Link to="/questionforme/calender" 
                 style={{textDecoration: "none", color: 'black'}}
                 onClick={() => {
                     dispatch({ type: "CHANGE_CALENDER" })
