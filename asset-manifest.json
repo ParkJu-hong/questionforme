@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/questionforme/static/css/main.e6c13ad2.css",
+    "main.js": "/questionforme/static/js/main.4a897e48.js",
+    "index.html": "/questionforme/index.html",
+    "main.e6c13ad2.css.map": "/questionforme/static/css/main.e6c13ad2.css.map",
+    "main.4a897e48.js.map": "/questionforme/static/js/main.4a897e48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.4a897e48.js"
+  ]
+}
