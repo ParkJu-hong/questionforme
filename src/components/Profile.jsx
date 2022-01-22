@@ -94,7 +94,7 @@ function Profile() {
 }
 const Main = styled.div`
     text-align: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin:10px;
 `
 
