@@ -17,17 +17,17 @@ const AppRoute = () => {
             {isLoggedIn && <Navigation/>}
             <Switch>
                 {isLoggedIn ? <>
-                        <Route exact path="/questionforme">
+                        <Route exact path="/">
                             <Home />
                         </Route>
-                        <Route path="/questionforme/profile">
+                        <Route path="/profile">
                             <Profile />
                         </Route>
-                        <Route path="/questionforme/calender">
+                        <Route path="/calender">
                             <Calender />
                         </Route>
                     </> : 
-                    <Route exact path="/questionforme">
+                    <Route exact path="/">
                         <Auth />
                     </Route>}
             </Switch>
