@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/questionforme/static/css/main.31d6cfe0.css",
-    "main.js": "/questionforme/static/js/main.60d7013a.js",
-    "index.html": "/questionforme/index.html",
-    "main.60d7013a.js.map": "/questionforme/static/js/main.60d7013a.js.map"
+    "main.css": "/bejeju/questionforme/static/css/main.31d6cfe0.css",
+    "main.js": "/bejeju/questionforme/static/js/main.4a87b946.js",
+    "index.html": "/bejeju/questionforme/index.html",
+    "main.4a87b946.js.map": "/bejeju/questionforme/static/js/main.4a87b946.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.60d7013a.js"
+    "static/js/main.4a87b946.js"
   ]
 }
