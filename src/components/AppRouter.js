@@ -13,7 +13,7 @@ const AppRoute = () => {
         console.log("process.env.PUBLIC_URL : ", process.env.PUBLIC_URL)
     },[])
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             {isLoggedIn && <Navigation/>}
             <Switch>
                 {isLoggedIn ? <>
