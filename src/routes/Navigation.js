@@ -11,11 +11,11 @@ function Navigation() {
     const dispatch = useDispatch();
     return (
         <>
-            <Nav style={{ display: "flex", justifyContent: "space-around", width: "100vw" }}>
-                <Div style={{}}><Link to="/profile" style={{textDecoration: "none", color: 'black'}}>{userObj.displayName}'s Profile</Link></Div>
-                <Div style={{}}><Link to="/" style={{textDecoration: "none", color: 'black'}}><FontAwesomeIcon icon={faHome} /></Link></Div>
+            <Nav >
+                <Div style={{}}><Link to="/profile" style={{textDecoration: "none", color: 'white'}}>{userObj.displayName}'s Profile</Link></Div>
+                <Div style={{}}><Link to="/" style={{textDecoration: "none", color: 'white'}}><FontAwesomeIcon icon={faHome} /></Link></Div>
                 <Div style={{}}><Link to="/calender" 
-                style={{textDecoration: "none", color: 'black'}}
+                style={{textDecoration: "none", color: 'white'}}
                 onClick={() => {
                     dispatch({ type: "CHANGE_CALENDER" })
                 }}><FontAwesomeIcon icon={faQuestion} /></Link></Div>
@@ -26,7 +26,12 @@ function Navigation() {
 
 const Nav = styled.nav`
     display: flex;
-    /* border: solid 1px red; */
+    justify-content: space-around;
+    background-color: black;
+    padding: 50px;
+    margin: 30px;
+    border: solid 1px skyblue;
+    border-radius: 3px;
 `
 const Div = styled.div`
     list-style:none;

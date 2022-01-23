@@ -67,7 +67,8 @@ function Home() {
 
 const Main = styled.div`
     text-align: center;
-    /* border: 1px solid red; */
+    margin: 30px;
+    border-radius: 3px;
 `
 
 export default Home

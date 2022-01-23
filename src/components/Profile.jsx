@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { dbService, storageService } from "../fBase";
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 function Profile() {
     const [text, setText] = useState("");
@@ -62,40 +64,62 @@ function Profile() {
     return (
         <Main>
             <form>
-                <input
+                <InputText
                     type="text"
                     value={text}
                     onChange={onChange}
                 />
-                <input
+                <InputSubmit
                     type="submit"
                     value="메모"
                     onClick={onSubmit}
                 />
             </form>
-            <button
+            <LogOutButton
                 onClick={onLogOutClick}
-                style={{ marginTop: "3vh" }}
-            >Log Out</button>
+                style={{ marginTop: "3vh"}}
+            >Log Out</LogOutButton>
             <div className="memoRendering" style={{ marginTop: "5vh" }}>
                 {memos.map((el, idx) => {
-                    return <div>
-                        <span key={idx}>{el.text}</span>
-                        <button
+                    return <div key={idx}>
+                        <div >{el.text}</div>
+                        <LogOutButton
                             style={{ marginLeft: "2vh" }}
                             name={el.id}
                             onClick={onDeleteClick}
-                        >삭제</button>
+                        >삭제</LogOutButton>
                     </div>
                 })}
             </div>
         </Main>
     )
 }
+
 const Main = styled.div`
     text-align: center;
     /* border: 1px solid red; */
     margin: 40px;
+`
+
+const InputText = styled.input`
+  width: 500px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+`
+
+const InputSubmit = styled.input`
+    border: 0;
+    background-color: white;
+`
+
+const LogOutButton = styled.button`
+    border: 0;
+    background-color: white;  
 `
 
 export default Profile
