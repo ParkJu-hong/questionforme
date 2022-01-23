@@ -7,7 +7,7 @@ function Calender() {
     const selected = useSelector(state => state.reducerLoggedIn.calenderSelected);
     const dispatch = useDispatch();
     return (
-        <div style={{ textAlign: "center", margin: "40px"}}>
+        <div style={{ textAlign: "center", marginTop: "40px", width: "100%"}}>
             {selected !== "" ? <Question whatnumberquestion={selected} /> : <>
                 {arr.map((el, idx) => {
                     return <span 
