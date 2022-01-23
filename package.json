@@ -1,7 +1,7 @@
 {
   "name": "questionforme",
   "version": "0.1.0",
-  "homepage": "https://bejeju.github.io/questionforme/",
+  "homepage": "https://bejeju.github.io/questionforme",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
