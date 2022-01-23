@@ -10,7 +10,7 @@ function Calender() {
         <div style={{ textAlign: "center", marginTop: "40px", width: "100%"}}>
             {selected !== "" ? <Question whatnumberquestion={selected} /> : <>
                 {arr.map((el, idx) => {
-                    return <span 
+                    return <div 
                         key={idx}
                         style={{ margin: "20px", fontSize: "20px"}}
                         onClick={() => {
@@ -20,7 +20,7 @@ function Calender() {
                                     calenderSelected: el
                                 }
                             })
-                        }}>{el}</span>
+                        }}>{el}</div>
                 })}
             </>}
         </div>
