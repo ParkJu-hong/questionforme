@@ -26,7 +26,7 @@ function Auth() {
                 <h1 style={{textAlign: "center"}}>9qfm</h1>
                 <section style={{textAlign: "center", margin: "20px"}}>
                     <div>현재라는 바쁜 시공간에 살면서 자신과 대화를 하기에 여유가 쉽게 나지 않습니다.</div>
-                    <div>해서 조금이나마 시간을 내시어 나와 대화를 해보세요!</div>
+                    <div>조금이나마 시간을 내시어 나와 대화를 해보세요!</div>
                 </section>
                 <div style={{textAlign: "center"}}><FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon></div>
             </div>

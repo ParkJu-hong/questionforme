@@ -23,10 +23,10 @@ function Answer({ answers, forRenderingRealTime }) {
     }
 
     return (
-        <div style={{ margin: "30px" }}>
+        <div style={{ }}>
             {answers.length !== 0 ? answers.map((el) => {
                 return <_Answer key={el.id}>
-                    <div>
+                    <div style={{ flex: 1}}>
                     <div>Question : {el.whatnumberquestion}</div>
                     <div>{el.text}</div>
                     </div>
@@ -46,7 +46,6 @@ const _Answer = styled.div`
 `
 const DeleteButton = styled.button`
     margin-top: 5px;
-    flex: 1;
     border: 0;
     background-color: white;
 `

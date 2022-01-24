@@ -102,13 +102,12 @@ const Main = styled.div`
 `
 
 const InputText = styled.input`
-  width: 500px;
-  height: 32px;
+  width: 100%;
+  height: 50px;
   font-size: 15px;
   border: 0;
   border-radius: 15px;
   outline: none;
-  padding-left: 10px;
   background-color: rgb(233, 233, 233);
 `
 
